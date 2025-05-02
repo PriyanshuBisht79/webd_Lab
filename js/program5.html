@@ -1,0 +1,39 @@
+<!--Write a code for web application, which accepts the birthdate from the user in a textbox and display the day of the week in a message 
+box at the click of a button. 2002-03-12-->
+<html>
+    <head>
+        <title>program5</title>
+        <script>
+            function dateToDay(){
+                const date = document.getElementById("i1").value
+                if(!date){
+                    alert("Please Enter the date");
+                    return false;
+                }
+                const days = ["Sunday",'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+                let d = new Date(date);
+                let day = days[d.getDay()];
+                if(day ===undefined){
+                    alert("wrong date");
+                    return false;
+                }
+                document.querySelector("p").innerHTML = day;
+                return false;
+            }    
+        </script>
+    </head>
+    <body>
+        <h1>Date</h1>
+        <br>
+        <form onsubmit="return dateToDay()">
+            <label>
+                <input type="text" placeholder="yyyy-mm-dd" id="i1">
+            </label>
+            <br>
+            <br>
+            <input type="submit" value="submit">
+            
+            <p><p>
+        </form>
+    </body>
+</html>

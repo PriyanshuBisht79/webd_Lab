@@ -1,0 +1,29 @@
+<!--Write a java script program to find day of Birthday.-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>program3</title>
+        <script>
+            function dateToDay(){
+                const date =  document.getElementById("date").value;
+
+                if(!date){
+                    alert('please select a date');
+                    return false;
+                }
+                //alert(typeof(date) + date);
+                days = ["Sunday",'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+                const d = new Date(date);
+                let day = days[d.getDay()];
+                alert(day);
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return dateToDay()">
+        <label>Birthday::<input type="date" id="date"></label>
+        <input type="submit" value="convert">
+        </form>
+    </body>
+</html>

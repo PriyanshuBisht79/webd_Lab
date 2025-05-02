@@ -1,0 +1,50 @@
+<!-- Write a java script to validate the following fields in a registration page: 
+a)  Name (should contains alphabets and the length should not be less than 6 char) 
+b)  Password (should not be less than 6 characters)  
+c)  E-mail (should not contain invalid addresses) -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form Validation</title>
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const password = document.getElementById("password").value;
+            const email = document.getElementById("email").value.trim();
+
+            const nameRegex = /^[A-Za-z]{6,}$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Validate Name
+            if (!nameRegex.test(name)) {
+                alert("Name must contain only alphabets and be at least 6 characters long.");
+                return false;
+            }
+
+            // Validate Password
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            // Validate Email
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form onsubmit="return validateForm()">
+        Name: <input type="text" id="name" /><br><br>
+        Password: <input type="password" id="password" /><br><br>
+        Email: <input type="text" id="email" /><br><br>
+        <input type="submit" value="Register" />
+    </form>
+</body>
+</html>

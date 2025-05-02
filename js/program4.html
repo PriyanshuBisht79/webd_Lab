@@ -1,0 +1,33 @@
+<!--Design a web page that self-modifies itself after everyone minute.-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Background Color Changer</title>
+    <style>
+        body {
+            background: #000;
+            transition: background-color 1s ease;
+            font-family: Arial, sans-serif; 
+            color: white;
+            text-align: center;
+            margin-top: 200px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Watch the background color change every 3 seconds!</h2>
+
+    <script>
+        const colors = ["#1abc9c", "#3498db", "#9b59b6", "#e74c3c", "#f1c40f", "#34495e"];
+        let i = 0;
+
+        setInterval(() => {
+            document.body.style.backgroundColor = colors[i];
+            i = (i + 1) % colors.length;
+        }, 3000); // 3000 ms = 3 seconds
+    </script>
+
+</body>
+</html>
